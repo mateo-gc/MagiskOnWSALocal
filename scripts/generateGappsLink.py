@@ -32,10 +32,8 @@ download_dir = Path.cwd().parent / "download" if sys.argv[3] == "" else Path(sys
 tempScript = sys.argv[4]
 print(f"Generating OpenGApps download link: arch={arch} variant={variant}", flush=True)
 abi_map = {"x64": "x86_64", "arm64": "arm64"}
-# TODO: keep it 11.0 since opengapps does not support 12+ yet
-# As soon as opengapps is available for 12+, we need to get the sdk/release from build.prop and
-# download the corresponding version
-release = "11.0"
+# TODO: get the sdk/release from build.prop and download the corresponding version
+release = "12L"
 try:
     res = requests.get(f"https://api.opengapps.org/list")
     j = json.loads(res.content)
